@@ -1,2 +1,4 @@
-# yotsubato
-Движок сходный по выхлопу с форчонговским
+# Yotsubato v0.0 beta<br />
+Движок сходный по выхлопу с форчонговским<br />
+Это <b>ОЧЕНЬ НЕСТАБИЛЬНАЯ</b> версия. Сырец, так сказать.<br />
+The php part is based on saguaro (http://github.com/sootTheLoosy/saguaro)
