@@ -83,7 +83,7 @@ class PostForm {
 
         if (NOPICBOX && !SPOILER)
             $temp .= "<span class=\"desktop\">[<label><input name='textonly' value='on' tabindex=\"8\" type=\"checkbox\">" . S_NOFILE . "</label>]</span>";
-
+	//Lols
         /*if (SPOILER && !NOPICBOX) //Spoiler checkbox
             $temp .= "[<label><input type='checkbox' name='spoiler' value='spoiler'>" . S_SPOILERS . "</label>]</td></tr>";
         else*/
