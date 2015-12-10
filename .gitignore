@@ -1,0 +1,8 @@
+*.*~
+# Any config files that aren't the sample one.
+configs/*
+!configs/sample.php
+
+# Etc.
+Thumbs.db
+.DS_Store
