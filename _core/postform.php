@@ -25,7 +25,8 @@ class PostForm {
         if ($resno) $temp .= "<div class='theader'>" . S_POSTING . "</div>\n";
 
         $temp .= "<div class='postForm' align='center'><div class='postarea'>";
-        $temp .= "<form id='contribform' action='" . PHP_SELF_ABS . "' method='post' name='contrib' enctype='multipart/form-data'>";
+        //$temp .= "<form id='contribform' action='" . PHP_SELF_ABS . "' method='post' name='contrib' enctype='multipart/form-data'>";
+        $temp .= "<form name=\"post\" action=\"//".SITE_ROOT."/".BOARD_DIR."/post\" method=\"post\" enctype=\"multipart/form-data\">";
 
         if ($admin) {
             $name = "";
@@ -56,13 +57,16 @@ class PostForm {
 	    $temp .= "<tr data-type='Name'><td>".S_NAME."</td><td><input name='name' tabindex='1' placeholder='".S_ANONAME."' type='text'></td> </tr>";
 
         //$temp .= "<tr><td class='postblock' align='left'>" . S_EMAIL . "</td><td align='left'><input type='text' name='email' size='28'>";
+        if ($resno) //Subject if a new thread.
+	$temp .= "<tr data-type='E-mail'> <td>". S_EMAIL ."</td> <td><input name='email' tabindex='2' type='text'><input value='" . S_SUBMIT . "' tabindex=\"6\" type=\"submit\"></td></tr>";
+        else
 	$temp .= "<tr data-type='E-mail'> <td>". S_EMAIL ."</td> <td><input name='email' tabindex='2' type='text'></td> </tr>";
 
         if (!$resno) //Subject if a new thread.
-             $temp .= "<tr data-type='Subject'> <td>" . S_SUBJECT . "</td> <td><input name=\"sub\" tabindex=\"3\" type=\"text\">";
+             $temp .= "</td></tr><tr data-type='Subject'> <td>" . S_SUBJECT . "</td> <td><input name=\"sub\" tabindex=\"3\" type=\"text\"><input value='" . S_SUBMIT . "' tabindex=\"6\" type=\"submit\"></td></tr>";
              //$temp .= "</td></tr><tr><td class='postblock' align='left'>" . S_SUBJECT . "</td><td align='left'><input type='text' name='sub' size='35'>";
 
-        $temp .= "<input value='" . S_SUBMIT . "' tabindex=\"6\" type=\"submit\"></td></tr>";
+        //$temp .= "<input value='" . S_SUBMIT . "' tabindex=\"6\" type=\"submit\"></td></tr>";
         //$temp .= "<input type='submit' value='" . S_SUBMIT . "'></td></tr>";
 
         $temp .= "<tr data-type=\"Comment\"><td>" . S_COMMENT . "</td><td><textarea name=\"com\" cols=\"48\" rows=\"4\" tabindex=\"4\" wrap=\"soft\"></textarea></td></tr>";
