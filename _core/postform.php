@@ -91,11 +91,11 @@ class PostForm {
 
         if ($admin) { //Admin-specific posting options
             $temp .= "<tr><td align='left' class='postblock' align='left'>
-                Options</td><td align='left'>
-                Sticky: <input type='checkbox' name='isSticky' value='isSticky'>
+                Опции</td><td align='left'>
+                Закреплено: <input type='checkbox' name='isSticky' value='isSticky'>
                 Event sticky: <input type='checkbox' name='eventSticky' value='eventSticky'>
-                Lock:<input type='checkbox' name='isLocked' value='isLocked'>
-                Capcode:<input type='checkbox' name='showCap' value='showCap'>
+                Закрыто:<input type='checkbox' name='isLocked' value='isLocked'>
+                ##:<input type='checkbox' name='showCap' value='showCap'>
                 <tr><td class='postblock' align='left'>" . S_RESNUM . "</td><td align='left'><input type='text' name='resto' size='28'></td></tr>";
         }
 
@@ -103,7 +103,7 @@ class PostForm {
         $temp .= "<tr><td align='left' class='postblock' align='left'>" . S_DELPASS . "</td><td align='left'><input type='password' name='pwd' size='8' maxlength='8' value='' />" . S_DELEXPL . "</td></tr>";
 
         if (!$admin) //Show rules for non-admin
-            $temp .= "<tr><td colspan='2'><div align='left' class='rules'>" . S_RULES . "</div></td></tr></table></form></div></div><hr>";
+            $temp .= "<tr class=\"rules\"><td colspan='2'><div align='left' class='rules'>" . S_RULES . "</div></td></tr></table></form></div></div><hr>";
         else
             $temp .= '</table></form></div></div>';
 
