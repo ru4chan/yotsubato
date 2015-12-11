@@ -83,7 +83,7 @@ define(S_OMITT_NUM, 5);     //number of posts to display in each thread on the i
 
 //Captcha
 define(BOTCHECK, false);    //Use CAPTCHAs
-define(RECAPTCHA, true); //Use reCaptcha instead of the default captcha. Requires the SITEKEY and SECRET to be set below.
+define(RECAPTCHA, false); //Use reCaptcha instead of the default captcha. Requires the SITEKEY and SECRET to be set below.
 define(RECAPTCHA_SITEKEY, "");//reCaptcha public key.
 define(RECAPTCHA_SECRET, "");//reCaptcha secret key.
 
@@ -95,19 +95,6 @@ define(MAX_KB, 2048); //Maximum upload size in KB
 define(ALLOW_WEBMS, false); //This feature currently has prequisites. Please visit https://github.com/spootTheLousy/saguaro/wiki/Supporting-WEBMs before enabling.
 define(ALLOW_AUDIO, false); //If true, allows WebMs containing an audio stream.
 define(MAX_DURATION, 480);   //The maximum duration allowed in seconds.
-
-//RePod's JS suite. The majority of these should remain disabled until the suite is updated (as of 11-14-15)
-define(USE_JS_SETTINGS, false);  //Include the JS suite's settings - enables user side configuration.
-define(USE_IMG_HOVER, false);
-define(USE_IMG_TOOLBAR, false); //Iage search toolbar
-define(USE_IMG_EXP, false);      //Image expansion
-define(USE_UTIL_QUOTE, false);  //Utility quotes1
-define(USE_INF_SCROLL, false);  //Infinite scroll
-define(USE_UPDATER, false);     //Thread updater
-define(USE_THREAD_STATS, false);
-define(USE_EXTRAS, false);       //Automatically include all .js files in JS_PATH/extra/
-
-
 
 /*
     CSS

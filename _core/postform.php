@@ -62,7 +62,7 @@ class PostForm {
              $temp .= "<tr data-type='Subject'> <td>" . S_SUBJECT . "</td> <td><input name=\"sub\" tabindex=\"3\" type=\"text\">";
              //$temp .= "</td></tr><tr><td class='postblock' align='left'>" . S_SUBJECT . "</td><td align='left'><input type='text' name='sub' size='35'>";
 
-        $temp .= "<input value='" . S_SUBMIT . "' tabindex="6" type=\"submit\"></td></tr>";
+        $temp .= "<input value='" . S_SUBMIT . "' tabindex=\"6\" type=\"submit\"></td></tr>";
         //$temp .= "<input type='submit' value='" . S_SUBMIT . "'></td></tr>";
 
         $temp .= "<tr data-type=\"Comment\"><td>" . S_COMMENT . "</td><td><textarea name=\"com\" cols=\"48\" rows=\"4\" tabindex=\"4\" wrap=\"soft\"></textarea></td></tr>";

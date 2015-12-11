@@ -32,54 +32,33 @@ class Head {
                 $boardTitle ="<div class='boardTitle'/>/" . BOARD_DIR . "/ - " . TITLE . "</div>";
         }
         $bannerImg .= (SHOWTITLEIMG) ? '<img class="bannerImg" src="' . TITLEIMG . '" onclick="this.src=this.src;" alt="' . TITLE . '" /><br>' : '';
-
+        $max_bits = MAX_KB*1024*8;
         /* begin page content */
         $dat .= "<!DOCTYPE html><head>
                 <meta name='description' content='" . S_DESCR . "'/>
                 <meta http-equiv='content-type'  content='text/html;charset=utf-8'/>
-                <meta name='viewport' content='width=device-width, initial-scale=1'/>
+                <meta name=\"referrer\" content=\"origin\">
+                <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">
                 <meta http-equiv='cache-control' content='max-age=0'/>
                 <meta http-equiv='cache-control' content='no-cache'/>
                 <meta http-equiv='expires' content='0'/>
                 <meta http-equiv='expires' content='Tue, 01 Jan 1980 1:00:00 GMT'/>
                 <meta http-equiv='pragma' content='no-cache'/>
                 <link rel='shortcut icon' href='" . CSS_PATH . "imgs/favicon.ico'>
+                <script type=\"text/javascript\">var  style_group = \"nws_style\",  cssVersion = 639,  jsVersion = 1015,  comlen = 2000,  maxFilesize = ". $max_bits .",  maxLines = 50,  file_too_big = \"Максимальный размер файла " . MAX_KB . " KB.\",  clickable_ids = 1,  cooldowns = {\"thread\":60,\"reply\":15,\"image\":15,\"reply_intra\":15,\"image_intra\":15};var maxWebmFilesize = 3145728;var check_for_block = 1; </script>
                 <title>" .  $this->info['page']['title'] ."</title>";
 
         if (NSFW) {
-            $dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Saguaba' />
+            $dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Yotsuba' />
                 <link rel='stylesheet' type='text/css' href='" . CSS_PATH . "/stylesheets/mobile.css' title='mobile' />
-                <link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS2 . "' title='Sagurichan' />";
+                <link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS2 . "' title='Yotsuba B' />";
         } else {
-            $dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS2 . "' title='Sagurichan' />
+            $dat .= "<link rel=\"stylesheet\" title=\"switch\"  href='" . CSS_PATH . CSS2 . "' title='Yotsuba B' />
             <link rel='stylesheet' type='text/css' href='" . CSS_PATH . "/stylesheets/mobile.css' title='mobile' />
-            <link class='togglesheet' rel='alternate stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Saguaba' />";
+            <link class='togglesheet' rel='alternate stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Yotsuba' />";
         }
         //<link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS4 . "' title='Burichan'/> RIP Burichan 1862-2015
         $dat .= "<link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS3 . "' title='Tomorrow' />";
-
-        foreach($this->info['css']['extra'] as $css) {
-            $dat .= "<link rel='stylesheet' type='text/css' href='" . CSS_PATH . "$css'/>";
-        }
-
-        $dat .= "<script src='" . JS_PATH . "/jquery.min.js' type='text/javascript'></script>
-                <script src='" . JS_PATH . "/styleswitch.js' type='text/javascript'></script>
-                <script src='" . JS_PATH . "/main.js' type='text/javascript'></script>";
-
-        if (USE_JS_SETTINGS)  $dat .= '<script src="' . JS_PATH . '/suite_settings.js" type="text/javascript"></script>';
-        if (USE_IMG_HOVER)    $dat .= '<script src="' . JS_PATH . '/image_hover.js" type="text/javascript"></script>';
-        if (USE_IMG_TOOLBAR)  $dat .= '<script src="' . JS_PATH . '/image_toolbar.js" type="text/javascript"></script>';
-        if (USE_IMG_EXP)      $dat .= '<script src="' . JS_PATH . '/image_expansion.js" type="text/javascript"></script>';
-        if (USE_UTIL_QUOTE)   $dat .= '<script src="' . JS_PATH . '/utility_quotes.js" type="text/javascript"></script>';
-        if (USE_INF_SCROLL)   $dat .= '<script src="' . JS_PATH . '/infinite_scroll.js" type="text/javascript"></script>';
-        if (USE_UPDATER)      $dat .= '<script src="' . JS_PATH . '/thread_updater.js" type="text/javascript"></script>';
-        if (USE_THREAD_STATS) $dat .= '<script src="' . JS_PATH . '/thread_stats.js" type="text/javascript"></script>';
-        if (USE_EXTRAS) {
-            foreach (glob(PLUG_PATH . "/jquery/extra/*.js") as $path) {
-                $path = JS_PATH . '/extra/' . basename($path);
-                $dat .= "<script src='$path' type='text/javascript'></script>";
-            }
-        }
 
         $dat .= EXTRA_SHIT . '</head><body class="is_index"><div class="beforePostform" />' . $titlebar . '
                 <span class="boardList desktop">' . ((file_exists(BOARDLIST)) ? file_get_contents(BOARDLIST) : ''). '</div>
@@ -119,18 +98,18 @@ class Head {
         //$dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' href='" . CSS_PATH . "/panel.css' title='Admin Panel' />";
 
         if (NSFW) {
-            $dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Saguaba' />
+            $dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Yotsuba' />
                 <link rel='stylesheet' type='text/css' href='" . CSS_PATH . "/stylesheets/mobile.css' title='mobile' />
-                <link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS2 . "' title='Sagurichan' />";
+                <link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS2 . "' title='Yotsuba B' />";
         } else {
-            $dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS2 . "' title='Sagurichan' />
+            $dat .= "<link class='togglesheet' rel='stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS2 . "' title='Yotsuba B' />
             <link rel='stylesheet' type='text/css' href='" . CSS_PATH . "/stylesheets/mobile.css' title='mobile' />
-            <link class='togglesheet' rel='alternate stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Saguaba' />";
+            <link class='togglesheet' rel='alternate stylesheet' type='text/css' href='" . CSS_PATH . CSS1 . "' title='Yotsuba' />";
         }
         //<link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS4 . "' title='Burichan'/> RIP Burichan 1862-2015
         $dat .= "<link class='togglesheet' rel='alternate stylesheet' type='text/css' media='screen'  href='" . CSS_PATH . CSS3 . "' title='Tomorrow' />";        
         
-        $dat .= "<script src='" . JS_PATH . "/jquery.min.js' type='text/javascript'></script>
+        $dat .= "<script src='" . JS_PATH . "/extension.min.js' type='text/javascript'></script>
                 <script src='" . JS_PATH . "/main.js' type='text/javascript'></script>";
         
         $dat .= '</head><div class="beforePostform" />' . $titlebar . '
@@ -141,12 +120,12 @@ class Head {
         $dat .= "<div class='panelOps' style='text-align:left;' />[<a href=\"" . PHP_SELF2 . "\">" . S_RETURNS . "</a>]";
         $dat .= "[<a href=\"" . PHP_SELF . "\">" . S_LOGUPD . "</a>]";
         if (valid('moderator')) {
-            $dat .= "[<a href='" . PHP_ASELF_ABS . "?mode=rebuild' >Rebuild</a>]";
-            $dat .= "[<a href='" . PHP_ASELF_ABS . "?mode=rebuildall' >Rebuild all</a>]";
+            $dat .= "[<a href='" . PHP_ASELF_ABS . "?mode=rebuild' >Пересобрать</a>]";
+            $dat .= "[<a href='" . PHP_ASELF_ABS . "?mode=rebuildall' >Пересобрать все треды</a>]";
             $dat .= "[<a href='" . PHP_ASELF_ABS . "?mode=reports' >" . $getReport->reportGetAllBoard() . "</a>]";
         }
         if (valid('admin'))
-            $dat .= "[<a href='" . PHP_ASELF_ABS . "?mode=staff' >Manage users</a>]";
+            $dat .= "[<a href='" . PHP_ASELF_ABS . "?mode=staff' >Управление пользователями</a>]";
         $dat .= "[<a href='" . PHP_ASELF . "?mode=logout'>" . S_LOGOUT . "</a>]";
         return $dat;
     } 
